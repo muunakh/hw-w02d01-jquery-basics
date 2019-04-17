@@ -1,24 +1,35 @@
-document.getElementById('stopButton').onclick = illuminateRed;
-document.getElementById('slowButton').onclick = illuminateYellow;
-document.getElementById('goButton').onclick = illuminateGreen;
-
-function illuminateRed() {
-  clearLights();
-  document.getElementById('stopLight').style.backgroundColor = "red";
+// turn on stop function 
+function turnOfflight(){
+  $('#stopLight').css('background-color','black');
+  $('#slowLight').css('background-color','black');
+  $('#goLight').css('background-color','black');
 }
-
-function illuminateYellow() {
-  clearLights();
-  document.getElementById('slowLight').style.backgroundColor = "yellow";
+function turnOnStopLight() {
+  // change background color of stop light to red
+  // changes background color of green and yellow to black
+  turnOfflight();
+  $('#stopLight').css('background-color','red');
+ 
 }
-
-function illuminateGreen() {
-  clearLights();
-  document.getElementById('goLight').style.backgroundColor = "green";
+// turn on slow function
+function turnOnSlowLight() { 
+// change background color of slow light to yellow
+// changes background color of red and green to black
+//$('#stopLight').css('background-color','black');
+turnOfflight();
+$('#slowLight').css('background-color','yellow');
 }
-
-function clearLights() {
-  document.getElementById('stopLight').style.backgroundColor = "black";
-  document.getElementById('slowLight').style.backgroundColor = "black";
-  document.getElementById('goLight').style.backgroundColor = "black";
+// turn on go function
+function turnOnGoLight() {
+  // change background color of go light to green
+  // changes background color of red and yellow to black
+ 
+  turnOfflight();
+  $('#goLight').css('background-color','green');
 }
+// set stop light click event
+$('#stopButton').on('click',turnOnStopLight);
+// set slow light click event
+$('#slowButton').on('click',turnOnSlowLight);
+// set go light click event
+$('#goButton').on('click',turnOnGoLight);
